@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jre-11.0.11_9-alpine
+FROM openjdk:11
 
 RUN addgroup --system spring && adduser --system spring
 USER spring:spring
