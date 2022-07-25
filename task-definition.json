@@ -1,0 +1,41 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "app",
+            "image": "xxxxxxxxxxxxxx.dkr.ecr.ap-northeast-2.amazonaws.com/blog-test:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/test-blog",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "test-blog",
+    "taskRoleArn": "arn:aws:iam::xxxxxxxxxxxxxx:role/CloudEcsTaskRole",
+    "executionRoleArn": "arn:aws:iam::xxxxxxxxxxxxxx:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024"
+}
